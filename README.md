@@ -21,7 +21,7 @@ This project implements standard enterprise database components from the ground 
 ## 🎓 Academic Performance
 - **Course:** CS 660 Graduate Introduction to Database Systems
 - **Grade Achieved:** 100.0 (Perfect Score via Autograder)
-- **Collaborators:** Saaleq Syed & Srikanth Reddy Gondireddy.
+- **Developer:** Srikanth Reddy Gondireddy.
 
 ## ⚙️ Building the Engine
 
