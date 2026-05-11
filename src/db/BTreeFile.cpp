@@ -110,7 +110,9 @@ void BTreeFile::insertTuple(const Tuple &tuple) {
 
 // Stub function for tuple deletion (to be implemented)
 void BTreeFile::deleteTuple([[maybe_unused]] const Iterator &it) {
-  // Placeholder for deletion logic
+  // Note: Deletion not required for this implementation scope.
+  // Full deletion would require complex rebalancing, potential node merging, 
+  // and borrowing from siblings to maintain the B+ Tree invariants.
 }
 
 // Fetch tuple pointed by the iterator

@@ -143,7 +143,9 @@ void db::join(const DbFile &left, const DbFile &right, DbFile &out, const JoinPr
   size_t left_field_index = left_desc.index_of(pred.left);
   size_t right_field_index = right_desc.index_of(pred.right);
 
-  // Loop over all tuples from the left DbFile
+  // Note: This implements a Nested Loop Join which has an O(n²) worst-case time complexity.
+  // In a production engine, Hash Joins or Index Nested Loop Joins would be used 
+  // to improve performance to O(n) average case.
   for (const Tuple &left_tuple : left) {
     const field_t &left_value = left_tuple.get_field(left_field_index);
 

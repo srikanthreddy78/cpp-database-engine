@@ -7,6 +7,8 @@
 #include <vector>
 
 namespace db {
+    // Sets a strict upper memory bound for the cache to prevent out-of-memory errors
+    // and force testing of LRU eviction logic
     constexpr size_t DEFAULT_NUM_PAGES = 50;
 
 /**

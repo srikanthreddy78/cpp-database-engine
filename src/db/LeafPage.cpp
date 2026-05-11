@@ -1,6 +1,7 @@
 #include <db/LeafPage.hpp>
 #include <stdexcept>
 #include <cstring>  // for memcpy
+#include <cstdlib>  // for free
 
 using namespace db;
 
@@ -20,6 +21,11 @@ LeafPage::LeafPage([[maybe_unused]] Page &page, const TupleDesc &td, size_t key_
 
   // Allocate memory for data
   data = static_cast<uint8_t *>(malloc(capacity * tuple_size));
+}
+
+LeafPage::~LeafPage() {
+  delete header;
+  free(data);
 }
 
 bool LeafPage::insertTuple(const Tuple &t) {

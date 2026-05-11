@@ -25,6 +25,7 @@ namespace db {
         bool operator==(const PageId &) const = default;
     };
 
+    // Matches the standard OS page size (4KB) for optimal I/O throughput and alignment
     constexpr size_t DEFAULT_PAGE_SIZE = 4096;
 
     using Page = std::array<uint8_t, DEFAULT_PAGE_SIZE>;

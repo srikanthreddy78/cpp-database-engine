@@ -35,6 +35,12 @@ namespace db {
          */
         LeafPage(Page &page, const TupleDesc &td, size_t key_index);
 
+        ~LeafPage();
+
+        // Prevent double-free by disabling copy semantics
+        LeafPage(const LeafPage&) = delete;
+        LeafPage& operator=(const LeafPage&) = delete;
+
         /**
          * @brief Insert a tuple into the page
          * @details The tuple is inserted in sorted order based on the key. If the key already exists, the previous tuple is replaced.
