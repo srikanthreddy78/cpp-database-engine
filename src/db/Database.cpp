@@ -15,7 +15,7 @@ void Database::add(std::unique_ptr<DbFile> file) {
     const std::string &name = file->getName();
     // Check if the file already exists in the database's collection
     if (files.contains(name)) {
-        throw std::logic_error("File already existsin th database");
+        throw std::logic_error("File already exists in the database");
     }
     // Add the new file to the storage, using the file name as the key
     files[name] = std::move(file);

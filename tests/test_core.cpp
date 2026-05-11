@@ -18,14 +18,17 @@ protected:
     void SetUp() override {
         unlink("test_heap.db");
         unlink("test_btree.db");
+        unlink("test_output.db");
     }
 
     void TearDown() override {
         // Cleanup test files to maintain clean state
         try { getDatabase().remove("test_heap.db"); } catch(...) {}
         try { getDatabase().remove("test_btree.db"); } catch(...) {}
+        try { getDatabase().remove("test_output.db"); } catch(...) {}
         unlink("test_heap.db");
         unlink("test_btree.db");
+        unlink("test_output.db");
     }
 };
 
@@ -131,10 +134,10 @@ TEST_F(DatabaseEngineTest, QueryFilterOperator) {
     auto& db = getDatabase();
     TupleDesc td({type_t::INT}, {"value"});
     db.add(std::make_unique<HeapFile>("test_heap.db", td));
-    db.add(std::make_unique<HeapFile>("test_btree.db", td)); // Using as output file
+    db.add(std::make_unique<HeapFile>("test_output.db", td)); // Using as output file
     
     DbFile& in = db.get("test_heap.db");
-    DbFile& out = db.get("test_btree.db");
+    DbFile& out = db.get("test_output.db");
     
     in.insertTuple(Tuple({10}));
     in.insertTuple(Tuple({50}));
